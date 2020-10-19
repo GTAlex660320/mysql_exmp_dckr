@@ -29,19 +29,24 @@ docker exec -it mysqlEngine bash
     --  El contenedor de mySql  esta listo
 
 
+Para crear la imagen de la aplicacion se ejecuta el siguiente comando
 
-/********oTro
+docker build -t <identificador> <path>   //Para construir una imagen
+      docker build -t "mysql_exmp_dock" 
+      
+Una vez que tenemos ambas imagenes se ligan las imagenes tecleando
 
-Configurar MySQL para que escuche conexiones desde todas las IP
-Por defecto MySQL viene configurado para escuchar sólo conexiones locales. Podemos ejecutar el siguiente comando para ver nuestra configuración actual:
+docker-compose up -d
 
-1.   SHOW GLOBAL VARIABLES LIKE 'bind_address'
-Por defecto, debería retornar 127.0.0.1 y necesitamos cambiar ese valor a 0.0.0.0. Con eso le damos acceso a cualquier IP para acceder al servicio.
 
-El cambio debe realizarse en el archivo de configuración de MySQL: my.cnf. La ubicación de este archivo puede variar dependiendo del sistema operativo.
+Para detener la aplicación   se teclea
 
-GRANT ALL PRIVILEGES ON democreds.* TO 'credusr'@'%' IDENTIFIED BY 'secret'
+docker-compose down
 
+
+     El  problema con este ejemplo es que una vez que se da de baja la api  se pierden los cambios en la base de datos.
+     
+     En versiones posteriores se corregira este problema
 
 
 
