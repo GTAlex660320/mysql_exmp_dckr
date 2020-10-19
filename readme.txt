@@ -1,4 +1,4 @@
-/****   EJEMPLO CONECTAR  MYSQL  con PHPADMIN
+/****   EJEMPLO CONECTAR  MYSQL con API SPRING-BOOT
 
 Hacemos el pull de la base de datos y construimos el contenedor
 docker run --name mysqlEngine -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.6
