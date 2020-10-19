@@ -1,0 +1,24 @@
+version: '2'
+services:
+  database:
+    image: mysql
+    container_name: mysqlEngine
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: democreds
+      MYSQL_USER: credusr
+      MYSQL_PASSWORD: secret
+    ports:
+      - 3306:3306
+
+
+  springapi:
+    image: openjdk:8-jdk-slim
+    container_name: mysql_exmp_dock
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    volumes:
+      - ./mysql_exmp-0.0.1.jar:/usr/dockapp.jar
+    command: ["java", "-jar", "/usr/dockapp.jar"]
